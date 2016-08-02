@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+  body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.bi {
+    border: 45px solid transparent;
+    overflow: hidden;
+    resize: both;
+}
+</style>
+    <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+</head>
+<body id="body">
+<div id="div">
+    <img src="1.jpg" id ="img">
+</div>
+
+<div class="container"></div>
+
+<script>
+  var host = document.querySelector('.container');
+  var root = host.createShadowRoot();
+  root.innerHTML = '<p>How <em>you</em> doin?</p>'
+    var data = {a: 1, b: 2, c: 3, d: 4};
+var str=Object.keys(data).filter(function(x) { return data[x] > 2;;});
+    console.log(str);
+var indexedDB=window.indexedDB||window.webkitIndexedDB||window.mozIndexedDB||window.msIndexedDB;
+
+  var db;
+  var customerData = [
+  { ssn: "444-44-4444", name: "Bill", age: 35, email: "bill@company.com" },
+  { ssn: "555-55-5555", name: "Donna", age: 32, email: "donna@home.org" }
+];
+  var dbName="the_name";
+  var request = indexedDB.open("MyTestDatabase", 3);
+    request.onerror=function(e){
+        console.log("error");
+    }
+
+    request.onupgradeneeded=function(e){
+        var db=e.target.result;
+        var objectStore=db.createObjectStore("customers",{keyPath:"ssn"});
+        //创建索引
+        objectStore.createIndex("name","name",{unique:false});
+        objectStore.createIndex("email","email",{unique:true});
+        for(var i in customerData){
+            objectStore.add(customerData[i]);
+        }
+    }
+  request.onsuccess=function(e){
+        db=request.result;
+var transaction = db.transaction(["customers"]);
+var objectStore = transaction.objectStore("customers");
+var req = objectStore.get("444-44-4444");
+req.onerror = function(event) {
+  // 错误处理!
+};
+req.onsuccess = function(event) {
+  // 对 request.result 做些操作！
+  alert("Name for SSN 444-44-4444 is " + req.result.name);
+};
+     var tr = db.transaction(["customers"], "readwrite");
+      console.log(tr);
+      tr.oncomplete = function(event) {
+         alert("All done!");
+    };
+      var adds = tr.objectStore("customers");
+
+  var request1 = adds.add({"ssn":"123333333","name":"eee"});
+  request1.onsuccess = function(event) {
+        alert("ok");
+  };
+    var del = db.transaction(["customers"], "readwrite")
+                .objectStore("customers")
+                .delete("444-44-4444");
+del.onsuccess = function(event) {
+  // 删除数据成功！
+    alert("del del");
+};
+}
+
+</script>
+</body>
+</html>

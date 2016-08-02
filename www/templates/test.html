@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript" src="jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<div id="div">
+    <a href='#'> 第一个链接 </a> </br>
+  <a href='#'> 第二个链接 </a> </br>
+  <a href='#'> 第三个链接 </a> </br>
+  <a href='#'> 第四个链接 </a> </br>
+</div>
+
+<script>
+function parseUrl(url){
+    var params={};
+    var urlGroup=url.split("?");
+    if(urlGroup.length===1) return params;
+    var perParam=urlGroup[1].split("&");
+    var len=perParam.length;
+    for(var i=0;i<len;i++){
+        var result=perParam[i].split("=");
+        params[result[0]]=result[1];
+    }
+    return params;
+}
+  var url = 'http://witmax.cn/index.php?key0=0&key1=1&key2=2';
+    console.log(parseUrl(url));
+    var a=[1,2,3,4,5,6,]
+ var len=a.length;
+    for(var i=0;i<len;i++){
+        var num=a[i];
+        (function(num){
+              var f=function(){
+                  console.log(num);
+        };
+            a[i]=f;
+        })(num)
+    }
+    for(var i=0;i<len;i++){
+        //console.log(a[i]);
+
+    }
+//(function(a, b) {
+//  var c = a + b;
+//
+//  if(c > 100) return;
+//  arguments.callee(b, c);
+//
+//})(-1, 1);
+//function add(num){
+//    console.log(~add);
+//  num += ~add;
+//
+//  add.num = num;
+//  return add;
+//}
+//add.valueOf = add.toString = function(){return add.num};
+//var ans = add(3)(4)(5)(6);  // 18
+
+
+//for (var i = 0; i < elems.length; i++) {
+//
+//    (function (lockedInIndex) {
+//alert(lockedInIndex);
+//        elems[i].addEventListener('click', function (e) {
+//            e.preventDefault();
+//            alert('I am link #' + lockedInIndex);
+//        }, 'false');
+//
+//    })(i);
+//
+//}
+//function argu(){
+//   return [].reduce.call(arguments,function(a,b){
+//       return a+b;
+//   })
+//}
+
+//柯里化
+//function curryIt(fn) {
+//  var arr=[],len = fn.length;
+//  return function(x){ 
+//    arr.push(x);
+//   console.log(arr.length)
+//       return arr.length < 1en ? arguments.callee : fn.apply(null,arr);
+//  }
+//}
+//var fn = function (a, b, c) {return a + b + c};
+//alert(curryIt(fn)(1)(2)(3));
+
+ </script>
+</body>
+</html>

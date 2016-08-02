@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dingwei</title>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=vW3tpPUS3VrpOgoalXSWWt2SpeXWqc2I"></script>
+<script>
+    window.onload=function(){
+        var geolocation=new BMap.Geolocation();
+        geolocation.getCurrentPosition(function(position){
+            if(geolocation.getStatus()==BMAP_STATUS_SUCCESS){
+                var point=position.point;
+                console.log(point);
+                var map=new BMap.Map("map");
+                map.centerAndZoom(point,12);
+                map.enableScrollWheelZoom(true);
+                //添加表覅
+                var marker=new BMap.Marker(point) ;
+                map.addOverlay(marker);
+                map.panTo(point);
+            }
+        });
+    }
+</script>
+</head>
+<body>
+<div id="map" style="width:800px;height:700px"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link href="bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="bootstrap-datetimepicker.css">
+  </head>
+  <body>
+  <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="bootstrap.js"></script>
+  <script type="text/javascript" src="bootstrap-datetimepicker.min.js"></script>
+    <input size="16" type="text" value="2012-06-15 14:45" readonly class="form_datetime">
+<div class="input-append date form_datetime" data-date="2013-02-21T15:25:00Z">
+    <input size="16" type="text" value="" readonly>
+    <span class="add-on"><i class="icon-remove"></i></span>
+    <span class="add-on"><i class="icon-calendar"></i></span>
+</div>
+  <script type="text/javascript">
+    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+</script>
+<script type="text/javascript">
+    $(".form_datetime").datetimepicker({
+        format: "yyyy-mm-dd hh:ii",
+        autoclose: true,
+        todayBtn: true,
+        startDate: "2013-02-14 10:00",
+        minuteStep: 10
+    });
+</script>
+  </body>
+<html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+      <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+      <script type="text/javascript" src="handlebars-v4.0.2.js"></script>
+</head>
+<body>
+<div id="test"></div>
+
+ <script id="template" type="text/x-handlebars-template">
+<div class="entry">
+  <h1>{{title}}</h1>
+  <div class="body">
+    {{#noop}}{{body}}{{/noop}}
+  </div>
+</div>
+    </script>
+
+    <!--进行数据处理、html构造-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+          var data={
+              "title":123,
+              "body":455
+          }
+             //注册一个Handlebars模版，通过id找到某一个模版，获取模版的html框架
+        //$("#table-template").html()是jquery的语法，不懂的童鞋请恶补。。。
+        var myTemplate = Handlebars.compile($("#template").html());
+        //注册一个比较大小的Helper,判断v1是否大于v2
+        Handlebars.registerHelper("compare",function(v1,v2,options){
+          if(v1>v2){
+            //满足添加继续执行
+            return options.fn(this);
+          }else{
+            //不满足条件执行{{else}}部分
+            return options.inverse(this);
+          }
+        });
+        Handlebars.registerHelper("transfer",function(sex){
+            if(sex==0){
+                return "男"
+            }else{
+                return "女"
+            }
+        });
+          Handlebars.registerHelper("noop",function(options){
+             return options.fn(this);
+          })
+        //将json对象用刚刚注册的Handlebars模版封装，得到最终的html，插入到基础table中。
+        $('body').html(myTemplate(data));
+      });
+    </script>
+</body>
+</html>

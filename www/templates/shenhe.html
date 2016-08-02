@@ -1,0 +1,134 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+   <title>审核界面</title>
+   <link href="bootstrap.css" rel="stylesheet">
+   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+   <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<style>
+    .modal {
+  position: fixed;
+  top: 0;
+
+  bottom: 0;
+  left: 10px;
+  z-index: 1040;
+  display: none;
+  overflow: auto;
+  overflow-y: scroll;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+<h3 class="text-center">审核信息表</h3>
+<table class="table table-striped">
+   <thead>
+      <tr>
+         <th>姓名</th>
+         <th>性别</th>
+         <th>身份证号</th>
+          <th>录取批次</th>
+          <th>是否走读</th>
+          <th>缴费状态</th>
+          <th>操作</th>
+      </tr>
+   </thead>
+   <tbody>
+   <tr>
+         <td>Tanmay</td>
+         <td>Bangalore</td>
+         <td>560001</td>
+          <td>560001</td>
+          <td>560001</td>
+         <td>560001</td>
+          <td class="col-md-1"><a href="#" data-toggle="modal" data-target="#1">详情</a></td>
+   </tr>
+   </tbody>
+    </table>
+</div>
+<!--点击【详情】时弹出模态框 addpatient -->
+<div class="modal fade" id="1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">资料详情</h4>
+            </div>
+            <div class="modal-body">
+  <table class="table table-striped">
+
+      <tr>
+         <th>学籍号</th>
+          <td class="xjh"></td>
+         <th>考生号</th>
+         <td class="ksh"></td>
+          <th>姓名</th>
+         <td class="xm"></td>
+      </tr>
+    <tr>
+         <th>身份证</th>
+          <td class="sfzh"></td>
+         <th>性别</th>
+         <td class="xb"></td>
+          <th>出生日期</th>
+         <td class="csrq"></td>
+      </tr>
+    <tr>
+         <th>学生类别</th>
+          <td class="xslb"></td>
+         <th>报名时间</th>
+         <td class="bmsj"></td>
+          <th>学生层次</th>
+         <td class="xscc"></td>
+      </tr>
+      <tr>
+         <th>学制</th>
+          <td class="xz"></td>
+         <th>录取批次</th>
+         <td class="lqpc"></td>
+          <th>是否走读</th>
+         <td class="zdsp"></td>
+      </tr>
+      <tr>
+         <th>是否办理贷款</th>
+          <td class="dksp"></td>
+      </tr>
+      <tr>
+         <th>缴费方式</th>
+          <td>
+              <select class="form-control">
+               <option  value="转账">转账</option>
+              <option  value="现金">现金</option>
+              <option value="贷款">贷款</option>
+          </select>
+          </td>
+      </tr>
+</table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#add" onclick="ceshi()">审核</button>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+<script>
+
+   function check(){
+       var payCheck=$('select').val();
+        //alert(payCheck);
+       return payCheck;
+    }
+    function ceshi(){
+        alert(check());
+    }
+</script>
+</body>
+</html>

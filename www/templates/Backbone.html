@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript" src="jquery-2.1.4.min.js"></script>
+   <script type="application/javascript" src="Underscore.js"></script>
+    <script type="application/javascript" src="Backbone.js"></script>
+</head>
+<body>
+<div id="sidebar">woshicelan</div>
+<script>
+var ItemView = Backbone.View.extend({
+  tagName: 'li'
+});
+
+var BodyView = Backbone.View.extend({
+  el: 'body'
+});
+
+var str = new ItemView();
+var body1 = new BodyView();
+$("#sidebar").append(str);
+    console.log(str);
+ </script>
+</body>
+</html>

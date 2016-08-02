@@ -1,0 +1,57 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+   <title>统计界面</title>
+   <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+   <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<h3 class="text-center">信息统计表</h3>
+<p class="pull-right" style="margin-right: 2%">生成时间：<small class="time"></small></p>
+  <div class="row">
+<table class="table table-striped">
+      <tr>
+         <th>总人数</th>
+          <td >100</td>
+         <th></th>
+         <td></td>
+      </tr>
+    <tr>
+         <th>已审核</th>
+          <td>33</td>
+         <th>未审核</th>
+         <td>32</td>
+      </tr>
+    <tr>
+         <th>走读生</th>
+          <td>32</td>
+         <th>非走读生</th>
+         <td>11</td>
+      </tr>
+      <tr>
+         <th>已缴费</th>
+          <td>54</td>
+         <th>未交费</th>
+         <td>33</td>
+      </tr>
+</table>
+      </div>
+    <div>
+        <img src="6.jpg"  width="50%" height="100px" title="nihO" alt="zheshi">
+    </div>
+    </div>
+
+<script>
+    $(function(){
+        var now= new Date();
+        var month=now.getMonth()+1;
+        //写入相应位置
+        var time=now.getFullYear()+"/"+month+"/"+now.getDate()+" "+now.getHours()+":"+now.getMinutes();
+    $(".time").html(time);
+    })
+    </script>
+</body>
+</html>
