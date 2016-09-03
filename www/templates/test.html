@@ -12,7 +12,8 @@
   <a href='#'> 第三个链接 </a> </br>
   <a href='#'> 第四个链接 </a> </br>
 </div>
-
+<p contenteditable="true">这是一段可编辑的段落。请试着编辑该文本。</p>
+<p draggable="true" dropzone="div1">test</p>
 <script>
 function parseUrl(url){
     var params={};
@@ -89,8 +90,79 @@ function parseUrl(url){
 //  }
 //}
 //var fn = function (a, b, c) {return a + b + c};
-//alert(curryIt(fn)(1)(2)(3));
+//function cssStyle2DomStyle(sName) {
+//    return sName.replace(/(?!^)\-(\w)(\w+)/g, function(a, b, c){
+//            return b.toUpperCase() + c.toLowerCase();
+//        }).replace(/^\-/, '');
+//}
+//function push(array, ...items) {
+//  array.push(...items);
+//}
+//
+//function add(x, y) {
+//  return x + y;
+//}
+//
+//var numbers = [4, 38];
+//add(...numbers) // 42
+//
+//console.log([..."hello"] ) // "hello"
 
- </script>
+function* fibonacci() {
+    let [prev, curr] = [0, 1];
+    for (;;) {
+        [prev, curr] = [curr, prev + curr];
+        yield curr;
+    }
+}
+
+for (let n of fibonacci()) {
+    if (n > 1000) break;
+    console.log(n);
+}
+    var p = Promise.resolve('Hello');
+
+function Foo() {
+    var i = 0;
+    return function() {
+        console.log(i++);
+    }
+}
+
+</script>
+<script>
+function Observer() {
+    this.fns = [];
+}
+Observer.prototype = {
+    subscribe: function (fn) {
+        this.fns.push(fn);
+    },
+    unsubscribe: function (fn) {
+        this.fns = this.fns.filter(
+                        function (el) {
+                            if (el !== fn) {
+                                return el;
+                            }
+                        }
+                    );
+    },
+    update: function (o, thisObj) {
+        var scope = thisObj || window;
+        this.fns.forEach(
+                        function (el) {
+                            el.call(scope, o);
+                        }
+                    );
+    }
+};
+function foo() {
+ return  (function bar() {
+    alert(this); // global
+  })()
+
+}
+
+</script>
 </body>
 </html>

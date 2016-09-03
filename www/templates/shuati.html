@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+<script>
+
+for(var i=0;i<3;i++){
+	var str=[80,80,120,100];
+  var tem=[];
+tem.push(+str[0],+str[1],+str[2],+str[3]);
+  var sum=tem.reduce(function(x,y){return x+y;});
+  if(tem[0]>=60&&tem[1]>=60&&tem[2]>=90&&tem[3]>=90&&sum>=310){
+  	if(sum>=350){
+    	console.log('Gongfei');
+    }
+    else {console.log('Zifei')};
+}else {console.log('Fail')};
+}
+</script>
+</body>
+</html>
