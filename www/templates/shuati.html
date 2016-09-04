@@ -7,19 +7,25 @@
 </head>
 <body>
 <script>
+function Animal(){
+　　　　
+　　}
+Animal.prototype.species="动12物";
+function Cat(name){
+　　　　this.name = name;
+　　}
+function extend(Child, Parent) {
+　　　　var p=Parent.prototype;
+        var c=Child.prototype;
 
-for(var i=0;i<3;i++){
-	var str=[80,80,120,100];
-  var tem=[];
-tem.push(+str[0],+str[1],+str[2],+str[3]);
-  var sum=tem.reduce(function(x,y){return x+y;});
-  if(tem[0]>=60&&tem[1]>=60&&tem[2]>=90&&tem[3]>=90&&sum>=310){
-  	if(sum>=350){
-    	console.log('Gongfei');
-    }
-    else {console.log('Zifei')};
-}else {console.log('Fail')};
-}
+　　for (var i in p){
+      c[i]=p[i];
+    }　
+        　c.uber=p;　
+　　}
+   extend(Cat,Animal);
+　　var cat1 = new Cat("大毛");
+　　console.log(cat1.species); // 动物
 </script>
 </body>
 </html>
